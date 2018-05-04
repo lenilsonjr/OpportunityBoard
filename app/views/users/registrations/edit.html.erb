@@ -4,7 +4,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :email, required: true %>
+    <%= f.input :bio, required: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -14,6 +16,8 @@
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
   </div>
+
+  <%= render partial: "skills/shared/skill", locals: { collection: Skill.all, f: f } %>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>

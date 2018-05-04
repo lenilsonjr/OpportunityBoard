@@ -1,0 +1,20 @@
+<ol class="skills">
+  <% collection.arrange.each do |skill, sub_item| %>
+    <li>
+      <!-- Category -->
+        <div class="skill">
+
+          <div class="input boolean optional user_skill_ids">
+            <label class="boolean optional checkbox" for="user_skill_ids">
+              <%= f.check_box :skill_ids, { name: "user[skill_ids][]", include_hidden: false }, skill.id %><%= skill.name %>
+            </label>
+          </div>
+
+          <!-- Children -->
+          <% if skill.has_children? %>
+            <%= render partial: "skills/shared/skill", locals: { collection: skill.children, f: f } %>
+          <% end %>
+
+        </li>
+    <% end %>
+</ol>

@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # Forms made easy for Rails!
 gem 'simple_form'
+# Organise ActiveRecord model into a tree structure
+gem 'ancestry'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
